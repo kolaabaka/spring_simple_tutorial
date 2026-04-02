@@ -6,7 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.stereotype.Component;
 
-@Component("main-task")
+@Component
 @AllArgsConstructor
 @Getter
 @Setter

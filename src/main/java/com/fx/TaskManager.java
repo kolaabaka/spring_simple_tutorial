@@ -6,14 +6,18 @@ import org.springframework.stereotype.Component;
 @Component
 public class TaskManager {
 
-    private final Task task;
+    @Autowired(required = false)
+    private Task task;
 
-    @Autowired
     public TaskManager(Task task) {
         this.task = task;
     }
 
     public void printTask(){
-        System.out.println("Current task " + task.toString());
+        if(task != null) {
+            System.out.println("Current task " + task.toString());
+        } else {
+            System.out.println("No task");
+        }
     }
 }

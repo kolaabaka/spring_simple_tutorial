@@ -13,6 +13,10 @@ public class Main
 
         System.out.println(task1 == task2);
 
+        var taskProp = context.getBean(TaskProperties.class);
+
+        System.out.println(taskProp);
+
         TaskManager taskManagerConfig = context.getBean(TaskManager.class);
         taskManagerConfig.printTask();
 

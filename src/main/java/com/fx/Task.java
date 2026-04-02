@@ -2,15 +2,12 @@ package com.fx;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
 @Getter
 @Setter
 @ToString
@@ -30,8 +27,12 @@ public class Task {
         System.out.println("task pre destroy");
     }
 
-    public Task(){
-        this.duration = 30L;
-        this.name = "Nama";
+    public Task(
+        @Value("${task.name}") String name,
+        @Value("${task.duration}") Long duration
+
+    ){
+        this.duration = duration;
+        this.name = name;
     }
 }

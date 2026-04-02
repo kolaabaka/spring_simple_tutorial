@@ -15,5 +15,7 @@ public class Main
 
         TaskManager taskManagerConfig = context.getBean(TaskManager.class);
         taskManagerConfig.printTask();
+
+        context.close();// OMG context can be close
     }
 }

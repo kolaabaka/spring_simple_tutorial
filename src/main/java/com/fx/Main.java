@@ -7,23 +7,13 @@ public class Main
     public static void main( String[] args )
     {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.fx");
-        Task task = context.getBean(Task.class);
-        System.out.println(task);
 
-        Task task2 = (Task)context.getBean("main-task");
-        System.out.println(task2);
+        Task task1 = context.getBean(Task.class);
+        Task task2 = context.getBean(Task.class);
 
-        System.out.println(task == task2); //same object
+        System.out.println(task1 == task2);
 
-        TaskManager taskManager = context.getBean(TaskManager.class);
-        taskManager.printTask();
-
-        //Create bean with configuration
-        AnnotationConfigApplicationContext contextConfig = new AnnotationConfigApplicationContext(TaskConfiguration.class);
-        Task taskConfig = contextConfig.getBean(Task.class);
-        System.out.println(taskConfig);
-
-        TaskManager taskManagerConfig = contextConfig.getBean(TaskManager.class);
+        TaskManager taskManagerConfig = context.getBean(TaskManager.class);
         taskManagerConfig.printTask();
     }
 }

@@ -8,17 +8,13 @@ public class Main
     {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext("com.fx");
 
-        Task task1 = context.getBean(Task.class);
-        Task task2 = context.getBean(Task.class);
-
-        System.out.println(task1 == task2);
-
-        var taskProp = context.getBean(TaskProperties.class);
-
-        System.out.println(taskProp);
-
         TaskManager taskManagerConfig = context.getBean(TaskManager.class);
         taskManagerConfig.printTask();
+        try{
+            taskManagerConfig.justThrow();
+        } catch (Exception e) {
+
+        }
 
         context.close();// OMG context can be close
     }
